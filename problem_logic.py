@@ -1,3 +1,6 @@
+import random
+
+
 board_size = 4  # it could be changed later if we want
 board = [[0, 0, 2, 4], [2, 4, 0, 0], [2, 0, 0, 4], [4, 4, 4, 2]]
 
@@ -116,6 +119,42 @@ def merge_bottom(currentBoardStatus):
     currentBoardStatus = transpose(currentBoardStatus)
     currentBoardStatus = merge_right(currentBoardStatus)
     currentBoardStatus = transpose(currentBoardStatus)
+
+    return currentBoardStatus
+
+
+# This function picks a random value for the board between 2 and 4
+def pickRandomValue():
+    return random.choice([2, 4])
+
+
+# Creating a blank board
+board = []
+
+for i in range(board_size):
+    row = []
+
+    for j in range(board_size):
+        row.append(0)
+    board.append(row)
+
+# Fill two spots with random values at the start of the game
+numberNeeded = 2
+while(numberNeeded > 0):
+
+    randomRow = random.randint(0, board_size-1)
+    randomCol = random.randint(0, board_size-1)
+    if(board[randomRow][randomCol] == 0):
+        board[randomRow][randomCol] = pickRandomValue()
+        numberNeeded -= 1
+
+print('''This is the 2048 game ! In this game your goal is to combine values 
+to get the number 2048, by merging the board in different directions.
+You will have to press either  1, 2, 3 or 4 for left, right, up and down movements
+\n\nHere is the starting board for you to start playing....\n''')
+
+
+gameEnded = False
 
 
 merge_left(board)
