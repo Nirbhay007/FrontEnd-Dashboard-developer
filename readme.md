@@ -1,9 +1,9 @@
-#Started working on the requirements
+# Started working on the requirements
 
 ## Defining Requirements
 
 ### 1.Having a desirable board size.
-### 2.Implementing the crewation
+### 2.Creating a Board
 ### 3.Displaying the board at each step
 ### 4.Defining the function to merge in each direction
 ### 5.Defining a logic for implementing the game functionality of adding in pairs.
