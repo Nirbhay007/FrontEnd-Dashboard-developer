@@ -67,5 +67,45 @@ def merge_left(currentBoardStatus):
     return currentBoardStatus
 
 
+# This function is used for reversing the order of each row
+def reverse(row):
+        # Adding all the elements of the row to a new list in reverse order
+    new_list = []
+    for i in range(board_size-1, -1, -1):
+        new_list.append(row[i])
+    return new_list
+
+
+# This function is going to merge the board to the right
+def merge_right(currentBoardStatus):
+        # Looking at every row in the board
+    for i in range(board_size):
+                # Reverse the row and merge to the left, then reverse again
+        currentBoardStatus[i] = reverse(currentBoardStatus[i])
+        currentBoardStatus[i] = mergeOneRowLeft(currentBoardStatus[i])
+        currentBoardStatus[i] = reverse(currentBoardStatus[i])
+
+    return currentBoardStatus
+
+
+# This function is going to give us the transpose of the board
+def transpose(currentBoardStatus):
+    for row in range(board_size):
+        for col in range(row, board_size):
+            if(row != col):
+                temp = currentBoardStatus[row][col]
+                currentBoardStatus[row][col] = currentBoardStatus[col][row]
+                currentBoardStatus[col][row] = temp
+
+    return currentBoardStatus
+
+
+# This function is going to merge the board in the upward direction
+
+
 merge_left(board)
+display_board(board)
+transpose(board)
+display_board(board)
+merge_right(board)
 display_board(board)
