@@ -1,4 +1,4 @@
-# Started working on the requirements
+# Started working on the requirements for 2048 Game
 
 ## Defining Requirements
 
@@ -25,3 +25,13 @@
 #### 1. Starting with displaying and creating board
 
 #### 2. Working with game major functionality
+
+### To play the the game of 2048
+
+#### -> install python (recommende v3 or higher)
+
+#### -> run main.py
+
+### Libraries imported:-
+
+#### random and copy
