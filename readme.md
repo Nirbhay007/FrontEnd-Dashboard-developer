@@ -18,13 +18,9 @@
 
 ### 8. Implementing a logic for loss.
 
-## Defining Requirements
-
-###
-
 ## The program needs:-
 
-## Completed Features:-
+### Completed Features:-
 
 #### 1. Starting with displaying and creating board
 

@@ -13,17 +13,17 @@ def display_board(board):
 
     spaceLength = len(str(maximum))
     for row in board:
-        current_Row = "╏ "
+        current_Row = "╏"
 
         for element in row:
             if(element == 0):
-                current_Row += (spaceLength*"  "+"╏ ")
+                current_Row += (spaceLength*" "+" ╏ ")
             else:
                 gap = spaceLength-len(str(element))
-                current_Row += (gap*"  " +
+                current_Row += (gap*" " +
                                 str(element)+" ╏ ")
         print(current_Row)
-        print("-"*board_size*(board_size))
+        print("-"*(spaceLength+2)*(board_size+1))
     print()
 
 
@@ -101,6 +101,21 @@ def transpose(currentBoardStatus):
 
 
 # This function is going to merge the board in the upward direction
+def merge_top(currentBoardStatus):
+        # transpose the whole board then merge to the left then transpose back
+    currentBoardStatus = transpose(currentBoardStatus)
+    currentBoardStatus = merge_left(currentBoardStatus)
+    currentBoardStatus = transpose(currentBoardStatus)
+
+    return currentBoardStatus
+
+
+# This function is going to merge the board to the bottom
+def merge_bottom(currentBoardStatus):
+        # Transposes the whole board,merging to the right then transposing back again
+    currentBoardStatus = transpose(currentBoardStatus)
+    currentBoardStatus = merge_right(currentBoardStatus)
+    currentBoardStatus = transpose(currentBoardStatus)
 
 
 merge_left(board)
@@ -108,4 +123,8 @@ display_board(board)
 transpose(board)
 display_board(board)
 merge_right(board)
+display_board(board)
+merge_top(board)
+display_board(board)
+merge_bottom(board)
 display_board(board)
